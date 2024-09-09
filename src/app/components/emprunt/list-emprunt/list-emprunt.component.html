@@ -1,0 +1,38 @@
+<div class="emprunts-list">
+  <h2>Liste des Emprunts</h2>
+
+  <!-- Afficher les messages d'erreur -->
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Table des emprunts -->
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Livre</th>
+        <th>Utilisateur</th>
+        <th>Date d'emprunt</th>
+        <th>Date de retour</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emprunt of emprunts">
+        <td>{{ emprunt.id }}</td>
+        <td>{{ emprunt.livre.titre }}</td>
+        <td>{{ emprunt.utilisateur.nom }}</td>
+        <td>{{ emprunt.dateEmprunt | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <input type="date" #returnDate [value]="emprunt.dateRetour ? (emprunt.dateRetour | date:'yyyy-MM-dd') : ''" />
+        </td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="prepareReturn(emprunt, returnDate)">
+            Mettre à jour
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

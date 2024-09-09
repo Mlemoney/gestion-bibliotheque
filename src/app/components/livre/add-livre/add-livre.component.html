@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Ajouter un Livre</h2>
+
+  <form (ngSubmit)="addLivre(myform)" #myform="ngForm" class="book-form">
+    <div class="form-group mb-3">
+      <label for="titre" class="form-label">Titre</label>
+      <input type="text" id="titre" [(ngModel)]="livre.titre" name="titre" required class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="auteur" class="form-label">Auteur</label>
+      <input type="text" id="auteur" [(ngModel)]="livre.auteur" name="auteur" required class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="datePublication" class="form-label">Date de Publication</label>
+      <input type="date" id="datePublication" [(ngModel)]="livre.datePublication" name="datePublication" required class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="isbn" class="form-label">ISBN</label>
+      <input type="text" id="isbn" [(ngModel)]="livre.isbn" name="isbn" required class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="genre" class="form-label">Genre</label>
+      <input type="text" id="genre" [(ngModel)]="livre.genre" name="genre" required class="form-control">
+    </div>
+
+    <div class="button-container">
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Liste des Auteurs</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Date de Naissance</th>
+        <th>Nationalité</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let auteur of auteurs">
+        <td>{{ auteur.id }}</td>
+        <td>{{ auteur.nom }}</td>
+        <td>{{ auteur.dateNaissance }}</td>
+        <td>{{ auteur.nationalite }}</td>
+        <td>
+          <a [routerLink]="['/edit-auteur', auteur.id]">Modifier</a>
+          <a (click)="deleteAuteur(auteur.id)">Supprimer</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
